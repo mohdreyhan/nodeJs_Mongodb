@@ -1,0 +1,9 @@
+.hideButtons {
+    visibility: hidden;
+}
+
+.showButtons {
+    visibility: visible;
+    margin-left: "5px";
+  }
+  
