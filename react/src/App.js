@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
-import { HashRouter, BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import Login from "./components/login/Login.js";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -15,6 +15,7 @@ import Users from "./components/ManageUsers/Users.js";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute.js";
 import CreateProject from "./components/Projects/CreateProject";
 import Projects from "./components/Projects/Projects";
+import UploadFile from "./components/UploadFile/UploadFile.js";
 
 
 const App = ({ store }) => (
@@ -32,6 +33,7 @@ const App = ({ store }) => (
         <ProtectedRoute path="/users" component={Users} />
         <ProtectedRoute path="/projects" component={Projects} />
         <ProtectedRoute path="/projects/create" component={CreateProject} />
+        <ProtectedRoute path="/profile" component={UploadFile} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </HashRouter>

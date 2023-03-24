@@ -7,7 +7,6 @@ class SideBar extends PureComponent {
     constructor(props){
         super(props)
     }
-
     render() {
         return (
             <React.Fragment>

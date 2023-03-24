@@ -5,15 +5,15 @@ const navbarMenu = [
         path: "/projects"
     },
     {
-        id : 1,
+        id : 2,
         name : "Add Task",
         path: "/addtasks"
     },
     {
-        id : 1,
+        id : 3,
         name : "Manage Task",
         path: "/managetasks"
-    }
+    },
 ]
 
 export default navbarMenu

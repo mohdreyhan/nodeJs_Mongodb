@@ -13,21 +13,11 @@ import { withRouter, Link } from "react-router-dom";
 import { USERLOGOUT } from "../../actions/ActionCreators";
 import { connect } from "react-redux";
 import navbarMenu from "./navbarMenu";
+import userImage from "../../images/user.png"
 
 class NavbarPage extends Component {
   constructor(props) {
     super(props);
-    this.token = document.cookie
-      ? document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("authtoken="))
-        .split("=")[1]
-      : undefined;
-    // if (this.token !== undefined && this.token.length > 1) {
-    //   this.props.history.replace({
-    //     pathname: "/"
-    //   })
-    // }
     this.state = {
       dropdownStatus: false,
     };
@@ -42,9 +32,15 @@ class NavbarPage extends Component {
   };
 
   render() {
-    if (this.token && this.token.length > 1) {
+    const token = document.cookie
+      ? document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("authtoken="))
+        .split("=")[1]
+      : undefined;
+    if (token && token.length > 1) {
       return (
-        <React.Fragment>
+        <React.StrictMode>
           <Navbar expand="lg" style={{ margin: "5px" }}>
             {/* <Button variant="light" style={{ width: 40, height: 40 }}>
               <Image
@@ -81,13 +77,13 @@ class NavbarPage extends Component {
                 style={{ borderRadius: "100%", padding: "1px" }}
               >
                 <Image
-                  src={require("../../images/user.png")}
+                  src={userImage}
                   style={{ width: 40, height: 40 }}
                   roundedCircle
                 />
               </Button>
               <Dropdown.Menu show={this.state.dropdownStatus} alignRight>
-                <Dropdown.Item eventKey="1">Profile</Dropdown.Item>
+                <Dropdown.Item eventKey="1" to= "/profile" as={Link}>Profile</Dropdown.Item>
                 <Dropdown.Item eventKey="2" to="/users" as={Link}>
                   Settings
                 </Dropdown.Item>
@@ -98,11 +94,11 @@ class NavbarPage extends Component {
               </Dropdown.Menu>
             </Navbar.Collapse>
           </Navbar>
-        </React.Fragment>
+        </React.StrictMode>
       )
     } else {
       return (
-        <div></div>
+        <React.Fragment></React.Fragment>
       )
     }
   }

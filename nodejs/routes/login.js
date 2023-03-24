@@ -4,6 +4,7 @@ const authToken = require("../lib/auth");
 const UsersSchema = require("../models/users");
 
 // let cookieOptions = { domain: domainUrl.replace(/(^\w+:|^)\/\//, ''), httpOnly: true, secure: true, sameSite: 'Lax', maxAge: parseInt(process.env.tokenExpiryTime) * 3600000};
+let cookieOptions = { httpOnly: true, secure: true, sameSite: 'Lax', signed : true};
 
 router.post("/", async (req, res) => {
   try {

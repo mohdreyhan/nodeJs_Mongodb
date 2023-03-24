@@ -7,7 +7,6 @@ import { ROLES, UPDATEUSERROLE } from "./Actions";
 import token from "../lib/token";
 
 let baseUrl = "http://localhost:3000";
-let xApiKey = "L75Ptr7TCv1p1jGM";
 
 /* --------------------- SIGN UP -------------------------------*/
 

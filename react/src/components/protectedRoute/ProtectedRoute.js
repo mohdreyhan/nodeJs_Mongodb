@@ -12,12 +12,17 @@ class ProtectedRoute extends React.Component {
         .find((row) => row.startsWith("authtoken="))
         .split("=")[1]
       : undefined;
+      console.log("dsadsadsadas",document.cookie)
     if (this.token !== undefined && this.token.length > 1) {
       this.isAuthenticated = true;
     }
   }
 
   render() {
+    console.log("bc")
+
+    const component = this.props.component;
+    const path = this.props.path;
     if (!this.isAuthenticated) {
       return (
         <Redirect
@@ -27,16 +32,14 @@ class ProtectedRoute extends React.Component {
         />
       );
     } else {
-      const component = this.props.component;
-      const path = this.props.path;
-
+      console.log("loggedin")
       return (
+        <Route path={path} component={component} />
         // <Route
         //   render={() => {
         //     return <Component />;
         //   }}
         // />
-        <Route path = {path} component={component} />
       );
     }
   }
